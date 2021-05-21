@@ -54,11 +54,12 @@ function palindrome(str) {
             // console.log("not a palindrome...")
             // return false
         }
-        reverseStrArray.reverse();
+
     }
     // console.log(newArray.toString())
     // console.log(reverseStrArray.toString())
     // console.log(reverseStrArray.toString())
+    reverseStrArray.reverse();
 
 
     if (newArray.toString() === reverseStrArray.toString()) {
@@ -76,7 +77,7 @@ function palindrome(str) {
 // palindrome("eye");
 // palindrome("asdjf");
 // palindrome('Hello');
-palindrome("1 eye for of 1 eye.");
-palindrome("0_0 (: /-\ :) 0-0");
-
+// palindrome("1 eye for of 1 eye.");
+// palindrome("0_0 (: /-\ :) 0-0");
+palindrome("eye")
 
