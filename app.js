@@ -42,24 +42,41 @@ function palindrome(str) {
     // matching all non-alphanumeric characters (punctuation, spaces and symbols)
     let myRegex = /[a-z]|\d/i;
     let strArray = lowerCaseStr.split(""); // returns [ 'an array of all non-alphanumeric letters' ]
-    let reverseStrArry = [...strArray];
-    reverseStrArry.reverse();
-    console.log(reverseStrArry);
-    console.log(strArray);
+    let reverseStrArray = [];
+    let newArray = [];
+
 
     for (let i = 0; i < strArray.length; i++) {
-        if
+        if (myRegex.test(strArray[i])) {
+            reverseStrArray.push(strArray[i])
+            newArray.push(strArray[i])
+        } else {
+            // console.log("not a palindrome...")
+            // return false
+        }
+        reverseStrArray.reverse();
+    }
+    // console.log(newArray.toString())
+    // console.log(reverseStrArray.toString())
+    // console.log(reverseStrArray.toString())
+
+
+    if (newArray.toString() === reverseStrArray.toString()) {
+        console.log("true!")
+        return true
+    } else {
+        console.log("false!")
+        return false
     }
 
-
-    return true
-}
+};
 
 
 
 // palindrome("eye");
 // palindrome("asdjf");
 // palindrome('Hello');
-palindrome("1 eye for of 1 eye.")
+palindrome("1 eye for of 1 eye.");
+palindrome("0_0 (: /-\ :) 0-0");
 
 
