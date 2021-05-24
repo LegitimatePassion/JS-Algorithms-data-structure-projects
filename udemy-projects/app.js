@@ -14,23 +14,35 @@
 // "delete" - Remove a specific to do item
 // "quit" - Quit App
 
-function todoList() {
-    alert('you are starting the todo list program!');
-    let todoList = [];
-    let promptValue = prompt('Please enter your command: ');
-    while (promptValue !== 'quit') {
-        promptValue = prompt('Please enter your command: ');
-        if (promptValue === 'new') {
-            let newTask = prompt('Please enter you new task: ')
-            todoList.push(newTask);
-            console.log(todoList);
-        } else if (promptValue === 'list') {
-            console.log(todoList);
+let input = prompt('What would you like to do?');
+const todos = ['feed the dogs', 'clean pool']
+while (input !== 'quit' && input !== 'q') {
+    if(input === 'list') {
+        console.log('Here is your current todo list: ')
+        console.log('*********')
+        for (let i = 0; i < todos.length; i++) {
+        console.log(`[${i}] - ${todos[i]}`)
         }
-        promptValue = prompt('Please enter your command: ');
+        console.log('*********')
     }
-    console.log("You quit the application.")
+    if(input === 'new') {
+        console.log('You are creating a new task')
+        let NewTask = prompt('What is your new task?')
+        todos.push(NewTask);
+        console.log('*********')
+        console.log(`New Task Created: ${NewTask}`)
+        console.log('*********')
+    }
+
+    if (input === 'delete') {
+        console.log('you are deleting a new task')
+        let deletedTask = parseInt(prompt('What task # do you want to delete?'))
+        todos.splice(deletedTask, 1)
+    }
+
+    input = prompt('What would you like to do?')
 }
 
+console.log('Ok, you quit the app')
 
-todoList()
+
