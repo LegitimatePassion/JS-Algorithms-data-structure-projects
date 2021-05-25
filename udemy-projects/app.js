@@ -25,7 +25,7 @@ while (input !== 'quit' && input !== 'q') {
         }
         console.log('*********')
     }
-    if(input === 'new') {
+    if (input === 'new') {
         console.log('You are creating a new task')
         let NewTask = prompt('What is your new task?')
         todos.push(NewTask);
