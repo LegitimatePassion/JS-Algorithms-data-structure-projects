@@ -3,8 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Ceasars Cipher</title>
+    <style type="text/css">
+        body {
+            margin: 0 auto;
+            max-width: 40em;
+            width: 88%;
+        }
+
+        label,
+        input {
+            display: block;
+            width: 100%;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            margin-bottom: 1em;
+        }
+    </style>
 </head>
 <body>
-<h1>Caesars Cipher</h1>
+<h1>Caesar Cipher</h1>
+
+<div>
+    <label for="msg">Message</label>
+    <input class="encrypt" shift="msg" type="text">
+</div>
+
+<div>
+    <label for="shift">Shift</label>
+    <input class="encrypt" id="shift" max="36" min="-36" step="1" type="number" value="2">
+</div>
+
+<div>
+    <label for="passes">Number of Passes</label>
+    <input class="encrypt" id="passes" step="1" type="number" value="5">
+</div>
+
+<div>
+    <label for="cipher">Encrypted Message</label>
+    <input id="cipher" readonly type="text">
+</div>
 </body>
 </html>
