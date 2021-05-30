@@ -1,10 +1,4 @@
-/**
- * Palindrome Checker
- *
- * Return true if a string is a palindrome. Otherwise Return False.
- *
- * {param} @str the string we are checking
-* */
+
 
 // This was my first attempt at this code.
 /*
@@ -36,6 +30,14 @@ function palindrome(str) {
     return true
 }
 */
+/**
+ * Palindrome Checker
+ *
+ * Return true if a string is a palindrome. Otherwise Return False.
+ *
+ * {param} @str the string we are checking
+ * @param {string} str
+ * */
 
 function palindrome(str) {
     let lowerCaseStr = str.toLowerCase();
