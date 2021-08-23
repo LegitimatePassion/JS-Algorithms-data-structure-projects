@@ -20,33 +20,6 @@
  *
  * */
 
-// var currencyUnit = {
-//     "PENNY": 0.01,
-//     "NICKEL": 0.05,
-//     "DIME": 0.10,
-//     "QUARTER": 0.25,
-//     "ONE": 1.00,
-//     "FIVE": 5.00,
-//     "TEN": 10.00,
-//     "TWENTY": 20.00,
-//     "ONE HUNDRED": 100.00,
-// }
-
-// done!
-// return {status: "INSUFFICIENT_FUNDS", change: []}
-// if the cash in drawer is less than the change, due or if you cannot return exact change
-
-// Done
-// return {status: "CLOSED", change: ${cid}}
-// if the cid value is equal to the change due
-
-// todo i need to loop through the object from
-// return {status: "OPEN", change: [...]}
-// with the change due in coins and bills, sorted in highest to lowest order, and the value of the change key
-
-// return `status: ${status}, change: ${change}`;
-
-
 
 function checkCashRegister(price, cash, cid) {
     let denominationObj = [
@@ -78,8 +51,8 @@ function checkCashRegister(price, cash, cid) {
 
     const denoOwed = denominationObj.reduce(function(arr, deno){
         let amtDue = 0;
-        while (register[deno.name] > 0 && changeDue >= deno.val) {
-            register[deno.name] -= deno.val;
+        while (cidTotal[deno.name] > 0 && changeDue >= deno.val) {
+            cidTotal[deno.name] -= deno.val;
             changeDue -= deno.val;
             amtDue += deno.val;
             changeDue = Math.round(changeDue * 100) / 100;
@@ -88,24 +61,24 @@ function checkCashRegister(price, cash, cid) {
         return arr;
     }, [])
 
-    if (changeDue > 0) return ;
+    if (changeDue > 0) return {status: "INSUFFICIENT_FUNDS", change: []};
 
     return {status: "OPEN", change: denoOwed};
 }
 
 // let test = checkCashRegister(1900, 2000, [["ONE HUNDRED", 100]]);
 // let test = checkCashRegister(100, 2000, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 3000]]);
-// console.log(test);
-
 // console.log(checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]))
 // should return {status: "OPEN", change: [["QUARTER", 0.5]]}
 // console.log(checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]))
-//should return {status: "OPEN", change: [["TWENTY", 60], ["TEN", 20], ["FIVE", 15], ["ONE", 1], ["QUARTER", 0.5], ["DIME", 0.2], ["PENNY", 0.04]]}
+// should return {status: "OPEN", change: [["TWENTY", 60], ["TEN", 20], ["FIVE", 15], ["ONE", 1], ["QUARTER", 0.5], ["DIME", 0.2], ["PENNY", 0.04]]}
 // console.log(checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]))
 // should return {status: "INSUFFICIENT_FUNDS", change: []})
 // console.log(checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]))
-//should return {status: "INSUFFICIENT_FUNDS", change: []}.
+// should return {status: "INSUFFICIENT_FUNDS", change: []}.
 // console.log(checkCashRegister(19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]))
-//  should return {status: "CLOSED", change: [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]}
-console.log(checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]))
+// should return {status: "CLOSED", change: [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]}
+// console.log(checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]))
 // should return {status: "OPEN", change: [["TWENTY", 60], ["TEN", 20], ["FIVE", 15], ["ONE", 1], ["QUARTER", 0.5], ["DIME", 0.2], ["PENNY", 0.04]]}
+// console.log(checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]))
+//should return {status: "INSUFFICIENT_FUNDS", change: []}

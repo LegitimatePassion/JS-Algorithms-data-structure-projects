@@ -1,2 +1,4 @@
 # JS-Algorithms-data-structure-projects
-I am nearing the completion of my first JavaScript Certification (FreeCodeCamp: JavaScript Algorithms and Data Structures). This repo will host the five projects required to earn my certification. Learn more about this certification here: https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/
+In early 2021 I completed a JS certification through FreeCodeCamp: JavaScript Algorithms and Data Structures. This repository will host the five projects required to earn my certification. 
+
+You can learn more about this certification here: https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/
